@@ -203,4 +203,242 @@ export const logicalQuestions: Question[] = [
       "Yellow is on top. Red is above blue, and green is below blue, so the order top-to-bottom is yellow, red, blue, green. Green is at the bottom.",
     tip: "Stack problems are vertical sequence problems. Write the positions top-to-bottom and slot each clue in until only one arrangement fits.",
   },
+  {
+    id: "log-017",
+    category: "logical",
+    difficulty: 2,
+    prompt: "Which letter comes next?\nC, E, H, L, ?",
+    options: ["O", "P", "Q", "R"],
+    answerIndex: 2,
+    explanation:
+      "The gaps grow: +2 (C→E), +3 (E→H), +4 (H→L), so next is +5. L is the 12th letter; 12 + 5 = 17 = Q.",
+    tip: "Number the letters and track the gaps. A growing-gap pattern (+2,+3,+4…) is extremely common.",
+  },
+  {
+    id: "log-018",
+    category: "logical",
+    difficulty: 2,
+    prompt: "In a code, RED is written as SFE. How is BLUE written?",
+    options: ["CMVF", "CMUF", "AMVF", "CLVF"],
+    answerIndex: 0,
+    explanation:
+      "Each letter shifts +1: R→S, E→F, D→E. Apply +1 to BLUE: B→C, L→M, U→V, E→F = CMVF.",
+    tip: "Establish the shift from the example, then apply the exact same shift to every letter of the target.",
+  },
+  {
+    id: "log-019",
+    category: "logical",
+    difficulty: 2,
+    prompt:
+      "No fish are mammals. All whales are mammals. Therefore:",
+    options: [
+      "All whales are fish.",
+      "No whales are fish.",
+      "Some whales are fish.",
+      "All fish are whales.",
+    ],
+    answerIndex: 1,
+    explanation:
+      "Whales are mammals, and no mammals are fish, so no whales can be fish.",
+    tip: "Chain through the shared term (mammals): whales sit inside mammals, and mammals are entirely outside fish — so whales are too.",
+  },
+  {
+    id: "log-020",
+    category: "logical",
+    difficulty: 2,
+    prompt:
+      "A is B's father. B is C's sister. How is A related to C?",
+    options: ["Brother", "Father", "Uncle", "Grandfather"],
+    answerIndex: 1,
+    explanation:
+      "B and C are siblings (B is C's sister). A is B's father, so A is also C's father.",
+    tip: "Siblings share parents. Once you know B and C are siblings, any parent of B is a parent of C.",
+  },
+  {
+    id: "log-021",
+    category: "logical",
+    difficulty: 3,
+    prompt:
+      "A person walks 5 km east, turns left and walks 5 km, then turns left again and walks 5 km. Where are they relative to the start?",
+    options: [
+      "5 km north of the start",
+      "5 km south of the start",
+      "Back at the start",
+      "5 km east of the start",
+    ],
+    answerIndex: 0,
+    explanation:
+      "East 5, then left = north 5, then left = west 5. The east and west cancel, leaving 5 km north of the start.",
+    tip: "Track east–west and north–south separately. Opposite legs cancel; whatever's left is your displacement.",
+  },
+  {
+    id: "log-022",
+    category: "logical",
+    difficulty: 2,
+    prompt: "Which number does NOT belong with the others?",
+    options: ["8", "27", "64", "100"],
+    answerIndex: 3,
+    explanation:
+      "8 = 2³, 27 = 3³, 64 = 4³ are perfect cubes. 100 is a perfect square but not a cube, so it's the odd one out.",
+    tip: "When numbers look like powers, test cubes as well as squares. 100 fits 'square' but breaks the 'cube' pattern the others share.",
+  },
+  {
+    id: "log-023",
+    category: "logical",
+    difficulty: 3,
+    prompt:
+      "Whenever the alarm rings, the door locks. The door is currently unlocked. Therefore:",
+    options: [
+      "The alarm rang.",
+      "The alarm did not ring.",
+      "The door is broken.",
+      "The alarm will ring soon.",
+    ],
+    answerIndex: 1,
+    explanation:
+      "'Alarm rings → door locks.' The door is unlocked (not locked), so the alarm cannot have rung (contrapositive).",
+    tip: "'If A then B' + 'not B' = 'not A.' The unlocked door is 'not B,' so conclude 'not A' — the alarm didn't ring.",
+  },
+  {
+    id: "log-024",
+    category: "logical",
+    difficulty: 1,
+    prompt: "What number comes next?\n7, 14, 28, 56, ?",
+    options: ["84", "98", "112", "120"],
+    answerIndex: 2,
+    explanation: "Each term doubles: 7, 14, 28, 56, 112.",
+    tip: "Check the ratio between terms. A constant ×2 means just double the last value.",
+  },
+  {
+    id: "log-025",
+    category: "logical",
+    difficulty: 1,
+    prompt:
+      "Tom is taller than Sam. Sam is taller than Ron. Who is the shortest?",
+    options: ["Tom", "Sam", "Ron", "Cannot tell"],
+    answerIndex: 2,
+    explanation:
+      "Tom > Sam > Ron in height, so Ron is the shortest.",
+    tip: "Lay rankings on a single line in one direction (tallest → shortest). The person at the bottom is your answer.",
+  },
+  {
+    id: "log-026",
+    category: "logical",
+    difficulty: 2,
+    prompt:
+      "If A = 1, B = 2, C = 3 … and a word's value is the sum of its letters, what is the value of BAD?",
+    options: ["5", "6", "7", "8"],
+    answerIndex: 2,
+    explanation: "B + A + D = 2 + 1 + 4 = 7.",
+    tip: "Convert letters to positions and add. Keep A=1…E=5 memorised so small words are instant.",
+  },
+  {
+    id: "log-027",
+    category: "logical",
+    difficulty: 2,
+    prompt:
+      "If LISTEN is coded as NETSIL, how is SILENT coded?",
+    options: ["TNELIS", "TNESIL", "SILTNE", "LISTNE"],
+    answerIndex: 0,
+    explanation:
+      "LISTEN reversed is NETSIL, so the code reverses the word. SILENT reversed is TNELIS.",
+    tip: "Test the simplest rule first: is the code just the word backwards? Reverse the target to confirm.",
+  },
+  {
+    id: "log-028",
+    category: "logical",
+    difficulty: 3,
+    prompt:
+      "All doctors are graduates. Some graduates are wealthy. Which statement MUST be true?",
+    options: [
+      "All doctors are wealthy.",
+      "Some doctors are wealthy.",
+      "No doctors are wealthy.",
+      "It cannot be determined whether any doctor is wealthy.",
+    ],
+    answerIndex: 3,
+    explanation:
+      "Doctors are graduates, but the 'some graduates' who are wealthy need not include any doctors. So we can't conclude anything certain about doctors' wealth.",
+    tip: "'Some graduates are wealthy' doesn't pin the wealth onto the doctor subset. With no guaranteed overlap, 'cannot be determined' wins.",
+  },
+  {
+    id: "log-029",
+    category: "logical",
+    difficulty: 3,
+    prompt: "What number comes next?\n1, 2, 4, 5, 7, 8, ?",
+    options: ["9", "10", "11", "12"],
+    answerIndex: 1,
+    explanation:
+      "The steps alternate +1, +2, +1, +2 … : 1 (+1) 2 (+2) 4 (+1) 5 (+2) 7 (+1) 8 (+2) 10.",
+    tip: "When a single difference rule fails, check for an alternating pattern (+1,+2,+1,+2). The next step continues the cycle.",
+  },
+  {
+    id: "log-030",
+    category: "logical",
+    difficulty: 2,
+    prompt:
+      "You are facing North. You turn 90° clockwise, then 90° clockwise again. Which direction are you now facing?",
+    options: ["East", "South", "West", "North"],
+    answerIndex: 1,
+    explanation:
+      "North → (90° CW) East → (90° CW) South. Two clockwise quarter-turns equal a half-turn, so you face South.",
+    tip: "Each 90° clockwise turn goes N→E→S→W. Count the quarter-turns around the compass.",
+  },
+  {
+    id: "log-031",
+    category: "logical",
+    difficulty: 2,
+    prompt: "3 is to 27 as 4 is to:",
+    options: ["12", "48", "64", "81"],
+    answerIndex: 2,
+    explanation: "3³ = 27, so the rule is 'cube it.' 4³ = 64.",
+    tip: "Test simple power relationships (square, cube) when the second number is much larger than the first. 27 = 3³ gives it away.",
+  },
+  {
+    id: "log-032",
+    category: "logical",
+    difficulty: 3,
+    prompt:
+      "Pointing to a photo, a man says: 'This is the child of my father's only son.' Who is in the photo?",
+    options: ["His brother", "His father", "His child", "Himself"],
+    answerIndex: 2,
+    explanation:
+      "'My father's only son' is the speaker himself. So the photo is of his child.",
+    tip: "Resolve nested relations inside-out. 'My father's only son' = me, so 'the child of me' = my child.",
+  },
+  {
+    id: "log-033",
+    category: "logical",
+    difficulty: 2,
+    prompt:
+      "In a test, P scored more than Q but less than R. S scored more than R. Who scored the highest?",
+    options: ["P", "Q", "R", "S"],
+    answerIndex: 3,
+    explanation:
+      "Q < P < R and R < S, so the order is S > R > P > Q. S is highest.",
+    tip: "Combine the inequalities into one chain. Whatever ends up on top of the chain is the highest.",
+  },
+  {
+    id: "log-034",
+    category: "logical",
+    difficulty: 2,
+    prompt: "What number comes next?\n81, 64, 49, 36, ?",
+    options: ["25", "27", "30", "16"],
+    answerIndex: 0,
+    explanation:
+      "These are descending squares: 9², 8², 7², 6², so next is 5² = 25.",
+    tip: "Falling perfect squares are easy to miss. If terms shrink and look 'square,' check 9²,8²,7²…",
+  },
+  {
+    id: "log-035",
+    category: "logical",
+    difficulty: 2,
+    prompt:
+      "In a code, DOG is written as CNF (each letter shifted back by one). How is CAT written?",
+    options: ["BZS", "DBU", "BYS", "BZT"],
+    answerIndex: 0,
+    explanation:
+      "Each letter shifts −1: D→C, O→N, G→F. Apply −1 to CAT: C→B, A→Z (wraps around), T→S = BZS.",
+    tip: "Watch for wrap-around: A−1 loops to Z. Letter codes are cyclic, so subtracting past A returns to the end of the alphabet.",
+  },
 ];
