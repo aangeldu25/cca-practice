@@ -450,4 +450,28 @@ export const numericalQuestions: Question[] = [
       "Year 1: 1000 × 1.1 = 1100. Year 2: 1100 × 1.1 = 1210. (Or 1000 × 1.1² = 1210.)",
     tip: "Compound interest multiplies by (1 + rate) each year: 1000 × 1.1². The extra $10 over simple interest is interest on the first year's interest.",
   },
+  {
+    id: "num-041",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "A retailer marks up cost by 40%, then offers a 25% discount on the marked price. What is the profit as a percentage of cost?",
+    options: ["5%", "10%", "15%", "0%"],
+    answerIndex: 0,
+    explanation:
+      "Take cost = 100. Marked price = 100 × 1.4 = 140. After 25% off: 140 × 0.75 = 105. Profit = 105 − 100 = 5, i.e. 5% of cost.",
+    tip: "Anchor the cost at 100 and chain the multipliers (×1.4 then ×0.75 = ×1.05). The combined factor minus 1 is the profit rate.",
+  },
+  {
+    id: "num-042",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "The average of 6 numbers is 15. The average of the first 4 is 12 and the average of the last 3 is 22. What is the 4th number?",
+    options: ["18", "20", "22", "24"],
+    answerIndex: 3,
+    explanation:
+      "Total of all 6 = 90. First 4 sum = 48; last 3 sum = 66. The first-4 and last-3 groups overlap only on the 4th number, so 48 + 66 = (total of 6) + (4th number) → 114 = 90 + 4th → 4th = 24.",
+    tip: "When two overlapping groups are summed, the shared member gets counted twice. (Sum of group A) + (Sum of group B) − (Total) = the overlap.",
+  },
 ];

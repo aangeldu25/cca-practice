@@ -1,4 +1,5 @@
 import type { Question } from "../types";
+import { shadingMatrixSvg, triangleSeqSvg, polygonDotsSvg } from "./svg";
 
 export const abstractQuestions: Question[] = [
   {
@@ -26,32 +27,6 @@ export const abstractQuestions: Question[] = [
     explanation:
       "The arrow turns 90° clockwise each step: up → right → down → left. The fourth arrow points left.",
     tip: "For rotation sequences, fix the direction (clockwise/anticlockwise) and the step size from the first two frames, then just keep turning by that amount.",
-  },
-  {
-    id: "abs-002",
-    category: "abstract",
-    difficulty: 1,
-    prompt:
-      "The number of dots increases by a fixed rule. How many dots belong in the fourth box?",
-    svg: `<svg viewBox="0 0 280 70" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Boxes containing one, three and five dots, then a question mark">
-      <g fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5">
-        <rect x="4" y="8" width="52" height="44" rx="6"/>
-        <rect x="74" y="8" width="52" height="44" rx="6"/>
-        <rect x="144" y="8" width="52" height="44" rx="6"/>
-        <rect x="214" y="8" width="52" height="44" rx="6"/>
-      </g>
-      <g fill="currentColor">
-        <circle cx="30" cy="30" r="4"/>
-        <circle cx="90" cy="30" r="4"/><circle cx="100" cy="30" r="4"/><circle cx="110" cy="30" r="4"/>
-        <circle cx="150" cy="30" r="4"/><circle cx="160" cy="30" r="4"/><circle cx="170" cy="30" r="4"/><circle cx="180" cy="30" r="4"/><circle cx="190" cy="30" r="4"/>
-      </g>
-      <text x="240" y="40" text-anchor="middle" font-size="30" fill="currentColor">?</text>
-    </svg>`,
-    options: ["6", "7", "8", "9"],
-    answerIndex: 1,
-    explanation:
-      "The counts are 1, 3, 5 — increasing by 2 each time. The next term is 5 + 2 = 7.",
-    tip: "Visual quantity patterns are number series. Count the elements, write the numbers down, and find the step.",
   },
   {
     id: "abs-003",
@@ -245,32 +220,6 @@ export const abstractQuestions: Question[] = [
     tip: "When figures grow in complexity, count the defining feature (sides here) and extend the number sequence: 3, 4, 5 → 6.",
   },
   {
-    id: "abs-015",
-    category: "abstract",
-    difficulty: 1,
-    prompt:
-      "The number of squares grows by a fixed rule. How many squares belong in the fourth frame?",
-    svg: `<svg viewBox="0 0 280 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Frames containing one, two and three small squares, then a question mark">
-      <g fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5">
-        <rect x="4" y="6" width="52" height="48" rx="6"/>
-        <rect x="74" y="6" width="52" height="48" rx="6"/>
-        <rect x="144" y="6" width="52" height="48" rx="6"/>
-        <rect x="214" y="6" width="52" height="48" rx="6"/>
-      </g>
-      <g fill="currentColor">
-        <rect x="26" y="25" width="9" height="9"/>
-        <rect x="90" y="25" width="9" height="9"/><rect x="102" y="25" width="9" height="9"/>
-        <rect x="154" y="25" width="9" height="9"/><rect x="166" y="25" width="9" height="9"/><rect x="178" y="25" width="9" height="9"/>
-      </g>
-      <text x="240" y="38" text-anchor="middle" font-size="30" fill="currentColor">?</text>
-    </svg>`,
-    options: ["3", "4", "5", "6"],
-    answerIndex: 1,
-    explanation:
-      "The counts are 1, 2, 3 — increasing by one. The fourth frame has 4 squares.",
-    tip: "Quantity series are number series. Count, write 1, 2, 3, and continue the run.",
-  },
-  {
     id: "abs-016",
     category: "abstract",
     difficulty: 3,
@@ -421,56 +370,6 @@ export const abstractQuestions: Question[] = [
     explanation:
       "The hand turns 90° clockwise each step: 12 → 3 → 6 → 9 o'clock.",
     tip: "A rotating hand is the same as a rotating arrow. Track the quarter-turns: 12, 3, 6, then 9.",
-  },
-  {
-    id: "abs-021",
-    category: "abstract",
-    difficulty: 1,
-    prompt:
-      "The number of lines increases by a fixed rule. How many lines belong in the fourth frame?",
-    svg: `<svg viewBox="0 0 280 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Frames containing one, two and three vertical lines, then a question mark">
-      <g fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5">
-        <rect x="4" y="6" width="52" height="48" rx="6"/>
-        <rect x="74" y="6" width="52" height="48" rx="6"/>
-        <rect x="144" y="6" width="52" height="48" rx="6"/>
-        <rect x="214" y="6" width="52" height="48" rx="6"/>
-      </g>
-      <g stroke="currentColor" stroke-width="3" stroke-linecap="round">
-        <line x1="30" y1="16" x2="30" y2="44"/>
-        <line x1="95" y1="16" x2="95" y2="44"/><line x1="105" y1="16" x2="105" y2="44"/>
-        <line x1="160" y1="16" x2="160" y2="44"/><line x1="170" y1="16" x2="170" y2="44"/><line x1="180" y1="16" x2="180" y2="44"/>
-      </g>
-      <text x="240" y="38" text-anchor="middle" font-size="30" fill="currentColor">?</text>
-    </svg>`,
-    options: ["3", "4", "5", "6"],
-    answerIndex: 1,
-    explanation:
-      "The line counts are 1, 2, 3, so the fourth frame has 4 lines.",
-    tip: "Count the repeated element and continue the simple run: 1, 2, 3 → 4.",
-  },
-  {
-    id: "abs-022",
-    category: "abstract",
-    difficulty: 1,
-    prompt: "The circle changes the same way each step. What comes next?",
-    svg: `<svg viewBox="0 0 280 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Circles shrinking from large to small, then a question mark">
-      <g fill="currentColor" fill-opacity="0.18" stroke="currentColor" stroke-width="2">
-        <circle cx="30" cy="32" r="20"/>
-        <circle cx="100" cy="32" r="14"/>
-        <circle cx="170" cy="32" r="8"/>
-      </g>
-      <text x="240" y="40" text-anchor="middle" font-size="30" fill="currentColor">?</text>
-    </svg>`,
-    options: [
-      "An even smaller circle",
-      "A larger circle",
-      "A circle of the same size",
-      "A square",
-    ],
-    answerIndex: 0,
-    explanation:
-      "Each circle is smaller than the last, so the next is smaller still. Only the size changes — it stays a circle.",
-    tip: "Identify the single changing attribute (size) and continue it. Don't introduce a new change (shape) that the pattern never made.",
   },
   {
     id: "abs-023",
@@ -699,5 +598,144 @@ export const abstractQuestions: Question[] = [
     explanation:
       "Two series are interleaved: an ascending one (1, 2, 3, 4 …) and a descending one (10, 9, 8 …). After 8 comes the next ascending term, 4.",
     tip: "When numbers zig-zag, split them into alternate positions. Here the odd positions count up (1,2,3) and the even positions count down (10,9,8).",
+  },
+  {
+    id: "abs-041",
+    category: "abstract",
+    difficulty: 3,
+    prompt:
+      "In each row, the third square combines the first two. A small square is shaded only if it is shaded in exactly ONE of the first two boxes. Which option (A–D) completes the grid?",
+    svg: shadingMatrixSvg(
+      [
+        [["TL", "BR"], ["TL", "TR"], ["TR", "BR"]],
+        [["TL", "TR", "BL"], ["TR"], ["TL", "BL"]],
+        [["TL", "BR", "BL"], ["TL", "TR", "BR"], "Q"],
+      ],
+      [
+        ["TR", "BL"],
+        ["TL", "TR", "BL", "BR"],
+        ["TL", "BR"],
+        ["TR", "BL", "BR"],
+      ]
+    ),
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answerIndex: 0,
+    explanation:
+      "This is an exclusive-OR (XOR) rule: a square is shaded in the third box only when it is shaded in just one of the first two. For the bottom row, the first box shades TL, BR, BL and the second shades TL, TR, BR. TL and BR appear in both (so they switch off); TR and BL appear once (so they stay on). The result is the top-right and bottom-left squares — option A.",
+    tip: "For combining-grid matrices, test the three logic rules in turn: AND (shaded in both), OR (shaded in either), XOR (shaded in exactly one). Confirm whichever rule fits the two complete rows.",
+  },
+  {
+    id: "abs-042",
+    category: "abstract",
+    difficulty: 3,
+    prompt:
+      "In each row, a small square is shaded in the third box only if it is shaded in BOTH of the first two boxes. Which option (A–D) completes the grid?",
+    svg: shadingMatrixSvg(
+      [
+        [["TL", "TR", "BL"], ["TL", "BR"], ["TL"]],
+        [["TL", "TR", "BR"], ["TR", "BR", "BL"], ["TR", "BR"]],
+        [["TL", "TR", "BL", "BR"], ["TR", "BL"], "Q"],
+      ],
+      [
+        ["TR", "BL"],
+        ["TL", "TR", "BL", "BR"],
+        ["TR"],
+        ["TL", "BR"],
+      ]
+    ),
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answerIndex: 0,
+    explanation:
+      "This is an AND rule: only squares shaded in both of the first two boxes survive. In the bottom row the first box is fully shaded and the second shades TR and BL, so the overlap is exactly TR and BL — option A.",
+    tip: "AND keeps only the common shading; OR keeps everything; XOR keeps the differences. Here the third box always has fewer shaded squares than either input, which points to AND.",
+  },
+  {
+    id: "abs-043",
+    category: "abstract",
+    difficulty: 3,
+    prompt:
+      "Reading each row left to right, one more square is shaded each step, added in clockwise order. Which option (A–D) completes the grid?",
+    svg: shadingMatrixSvg(
+      [
+        [["TL"], ["TL", "TR"], ["TL", "TR", "BR"]],
+        [["TR"], ["TR", "BR"], ["TR", "BR", "BL"]],
+        [["BR"], ["BR", "BL"], "Q"],
+      ],
+      [
+        ["BR", "BL", "TL"],
+        ["BR", "BL"],
+        ["BL", "TL", "TR"],
+        ["TL", "TR", "BR", "BL"],
+      ]
+    ),
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answerIndex: 0,
+    explanation:
+      "Each row starts at a different corner and adds the next square clockwise on every step. The bottom row starts at BR, then adds BL, so the third box adds the next clockwise square, TL — giving BR, BL and TL (option A).",
+    tip: "When shaded squares accumulate, find the starting corner and the direction of travel, then add one more in that direction for the missing box.",
+  },
+  {
+    id: "abs-044",
+    category: "abstract",
+    difficulty: 3,
+    prompt:
+      "A single shaded square advances one position clockwise with every step to the right AND every step down. Which option (A–D) completes the grid?",
+    svg: shadingMatrixSvg(
+      [
+        [["TL"], ["TR"], ["BR"]],
+        [["TR"], ["BR"], ["BL"]],
+        [["BR"], ["BL"], "Q"],
+      ],
+      [["TL"], ["BL"], ["BR"], ["TR"]]
+    ),
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answerIndex: 0,
+    explanation:
+      "The shaded square moves one corner clockwise (TL → TR → BR → BL → TL …) for each step right and each step down. The bottom-left cell is shaded BL, so one more clockwise step lands on TL — option A.",
+    tip: "Treat moving-element matrices as two rules at once (one across, one down). Apply both to reach the bottom-right cell.",
+  },
+  {
+    id: "abs-045",
+    category: "abstract",
+    difficulty: 3,
+    prompt:
+      "The triangle changes by two rules at once each step. Which option (A–D) comes next?",
+    svg: triangleSeqSvg(
+      [
+        { rot: 0, filled: true },
+        { rot: 90, filled: false },
+        { rot: 180, filled: true },
+        "Q",
+      ],
+      [
+        { rot: 270, filled: false },
+        { rot: 270, filled: true },
+        { rot: 0, filled: false },
+        { rot: 90, filled: false },
+      ]
+    ),
+    options: ["Option A", "Option B", "Option C", "Option D"],
+    answerIndex: 0,
+    explanation:
+      "Two rules run together: the triangle rotates 90° clockwise each step (up → right → down → left), and its fill alternates (filled, empty, filled, empty). The fourth frame is therefore a left-pointing, unfilled triangle — option A.",
+    tip: "When a single element changes in more than one way, track each attribute (rotation, fill, size) on its own line, then combine them for the answer.",
+  },
+  {
+    id: "abs-046",
+    category: "abstract",
+    difficulty: 3,
+    prompt:
+      "In three of these figures the number of dots equals the number of sides of the shape. Which figure breaks the rule?",
+    svg: polygonDotsSvg([
+      { sides: 3, dots: 3 },
+      { sides: 4, dots: 4 },
+      { sides: 5, dots: 5 },
+      { sides: 6, dots: 5 },
+    ]),
+    options: ["Figure 1", "Figure 2", "Figure 3", "Figure 4"],
+    answerIndex: 3,
+    explanation:
+      "Figure 1 (triangle, 3 dots), figure 2 (square, 4 dots) and figure 3 (pentagon, 5 dots) all match dots to sides. Figure 4 is a hexagon (6 sides) but shows only 5 dots, breaking the rule.",
+    tip: "When a hidden relationship links two features (here dots ↔ sides), check each figure against it. The odd one out is the single figure where the relationship fails.",
   },
 ];

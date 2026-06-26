@@ -441,4 +441,32 @@ export const logicalQuestions: Question[] = [
       "Each letter shifts −1: D→C, O→N, G→F. Apply −1 to CAT: C→B, A→Z (wraps around), T→S = BZS.",
     tip: "Watch for wrap-around: A−1 loops to Z. Letter codes are cyclic, so subtracting past A returns to the end of the alphabet.",
   },
+  {
+    id: "log-036",
+    category: "logical",
+    difficulty: 3,
+    prompt:
+      "All P are Q. No Q are R. Some R are S. Which statement MUST be true?",
+    options: [
+      "No P are R.",
+      "All S are R.",
+      "Some P are S.",
+      "No P are S.",
+    ],
+    answerIndex: 0,
+    explanation:
+      "Every P is a Q, and no Q is an R, so no P can be an R. The S statement is a distractor: 'some R are S' tells us nothing certain about P.",
+    tip: "Chain only the links you can trace. P sits inside Q, and Q is entirely separate from R, so P must be separate from R too. Ignore premises (about S) that don't connect.",
+  },
+  {
+    id: "log-037",
+    category: "logical",
+    difficulty: 3,
+    prompt: "What number comes next?\n1, 2, 6, 24, 120, ?",
+    options: ["240", "600", "720", "840"],
+    answerIndex: 2,
+    explanation:
+      "Each term is the previous one multiplied by an increasing factor: ×2, ×3, ×4, ×5, then ×6. 120 × 6 = 720. (These are the factorials 1!, 2!, 3!, 4!, 5!, 6!.)",
+    tip: "If the ratios between terms grow (×2, ×3, ×4…), the next multiplier is one larger. Recognising factorials (1, 2, 6, 24, 120, 720) makes this instant.",
+  },
 ];

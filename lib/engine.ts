@@ -26,6 +26,31 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
+/**
+ * Sample `n` questions without replacement, biased toward harder items.
+ * Each question's selection weight is difficulty² (so a difficulty-3 item is
+ * ~9× as likely as a difficulty-1 item per draw), which raises the overall
+ * difficulty of every assembled test while still mixing in easier questions.
+ */
+function weightedSample(pool: Question[], n: number): Question[] {
+  const items = pool.slice();
+  const result: Question[] = [];
+  const take = Math.min(n, items.length);
+  for (let k = 0; k < take; k++) {
+    const total = items.reduce((s, q) => s + q.difficulty * q.difficulty, 0);
+    let r = Math.random() * total;
+    let idx = 0;
+    for (; idx < items.length; idx++) {
+      r -= items[idx].difficulty * items[idx].difficulty;
+      if (r <= 0) break;
+    }
+    idx = Math.min(idx, items.length - 1);
+    result.push(items[idx]);
+    items.splice(idx, 1);
+  }
+  return result;
+}
+
 /** Randomise the order of a question's options, keeping answerIndex correct. */
 function shuffleOptions(q: Question): Question {
   const order = shuffle(q.options.map((_, i) => i));
@@ -44,11 +69,10 @@ export function assembleTest(): AssembledTest {
   const usedIds = new Set<string>();
 
   (Object.keys(CATEGORY_TARGETS) as Category[]).forEach((cat) => {
-    const pool = shuffle(BANK_BY_CATEGORY[cat]);
-    const take = Math.min(CATEGORY_TARGETS[cat], pool.length);
-    for (let i = 0; i < take; i++) {
-      picked.push(pool[i]);
-      usedIds.add(pool[i].id);
+    const chosen = weightedSample(BANK_BY_CATEGORY[cat], CATEGORY_TARGETS[cat]);
+    for (const q of chosen) {
+      picked.push(q);
+      usedIds.add(q.id);
     }
   });
 
