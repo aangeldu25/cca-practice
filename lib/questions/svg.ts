@@ -166,3 +166,90 @@ export function polygonDotsSvg(
     "</svg>"
   );
 }
+
+/* ---------- composite-figure sequences (multiple simultaneous rules) ---------- */
+
+export interface Fig {
+  /** Outer polygon sides; >= 20 renders a circle. */
+  sides: number;
+  /** Whole-figure rotation in degrees. */
+  rot?: number;
+  /** Shaded outer shape. */
+  fill?: boolean;
+  /** Internal pointer angle (deg clockwise from top); omit for no pointer. */
+  hand?: number;
+  /** Number of dots in a ring around the centre. */
+  dots?: number;
+}
+
+function rotatedShape(cx: number, cy: number, r: number, f: Fig): string {
+  const fillAttr = f.fill
+    ? `fill="currentColor" fill-opacity="0.22"`
+    : `fill="none"`;
+  if (f.sides >= 20)
+    return `<circle cx="${cx}" cy="${cy}" r="${r}" ${fillAttr} stroke="currentColor" stroke-width="2"/>`;
+  const rot = f.rot ?? 0;
+  const pts: string[] = [];
+  for (let i = 0; i < f.sides; i++) {
+    const a = ((-90 + rot + (360 / f.sides) * i) * Math.PI) / 180;
+    pts.push(`${(cx + r * Math.cos(a)).toFixed(1)},${(cy + r * Math.sin(a)).toFixed(1)}`);
+  }
+  return `<polygon points="${pts.join(" ")}" ${fillAttr} stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>`;
+}
+
+function figure(cx: number, cy: number, r: number, f: Fig): string {
+  let s = rotatedShape(cx, cy, r, f);
+  if (f.hand !== undefined) {
+    const a = ((-90 + f.hand) * Math.PI) / 180;
+    s +=
+      `<line x1="${cx}" y1="${cy}" x2="${(cx + r * 0.78 * Math.cos(a)).toFixed(1)}" y2="${(cy + r * 0.78 * Math.sin(a)).toFixed(1)}" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>` +
+      `<circle cx="${cx}" cy="${cy}" r="2" fill="currentColor"/>`;
+  }
+  const n = f.dots ?? 0;
+  for (let i = 0; i < n; i++) {
+    const a = ((-90 + (360 / n) * i) * Math.PI) / 180;
+    s += `<circle cx="${(cx + r * 0.5 * Math.cos(a)).toFixed(1)}" cy="${(cy + r * 0.5 * Math.sin(a)).toFixed(1)}" r="2.4" fill="currentColor"/>`;
+  }
+  return s;
+}
+
+/** A 4-frame composite-figure sequence (last = "Q") plus four option tiles A–D. */
+export function shapeSeqSvg(frames: (Fig | "Q")[], options: Fig[]): string {
+  const box = 60,
+    P = 70,
+    R = 22;
+  let body = "";
+  for (let i = 0; i < frames.length; i++) {
+    const x = 5 + i * P,
+      y = 6,
+      cx = x + box / 2,
+      cy = y + box / 2;
+    body += `<rect x="${x}" y="${y}" width="${box}" height="${box}" rx="6" fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5"/>`;
+    const f = frames[i];
+    if (f === "Q")
+      body += `<text x="${cx}" y="${cy + 10}" text-anchor="middle" font-size="30" fill="currentColor">?</text>`;
+    else body += figure(cx, cy, R, f);
+  }
+  const oy = 96;
+  for (let i = 0; i < options.length; i++) {
+    const x = 5 + i * P,
+      y = oy,
+      cx = x + box / 2,
+      cy = y + box / 2;
+    body += `<rect x="${x}" y="${y}" width="${box}" height="${box}" rx="6" fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.5"/>`;
+    body += figure(cx, cy, R, options[i]);
+    body += `<text x="${cx}" y="${y + box + 14}" text-anchor="middle" font-size="13" fill="currentColor">${String.fromCharCode(
+      65 + i
+    )}</text>`;
+  }
+  const w = 5 + Math.max(frames.length, options.length) * P;
+  return (
+    SVG_OPEN(
+      w,
+      178,
+      "A sequence of composite figures that change by several rules, then four option tiles A to D"
+    ) +
+    body +
+    "</svg>"
+  );
+}

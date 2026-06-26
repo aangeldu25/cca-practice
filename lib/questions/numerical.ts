@@ -2,456 +2,7 @@ import type { Question } from "../types";
 
 export const numericalQuestions: Question[] = [
   {
-    id: "num-001",
-    category: "numerical",
-    difficulty: 1,
-    prompt: "What number comes next in the series?\n2, 6, 12, 20, 30, ?",
-    options: ["38", "40", "42", "44"],
-    answerIndex: 2,
-    explanation:
-      "The gaps grow by 2 each time: +4, +6, +8, +10, so the next gap is +12. 30 + 12 = 42.",
-    tip: "When a series jumps around, write the differences underneath. If the differences form their own simple pattern, you've cracked it.",
-  },
-  {
-    id: "num-002",
-    category: "numerical",
-    difficulty: 2,
-    prompt:
-      "A shirt costs $40. The price is increased by 25%, then later decreased by 20%. What is the final price?",
-    options: ["$38", "$40", "$42", "$44"],
-    answerIndex: 1,
-    explanation:
-      "40 × 1.25 = 50. Then 50 × 0.80 = 40. A 25% rise followed by a 20% fall returns to the start because 1.25 × 0.80 = 1.",
-    tip: "Apply successive percentage changes as multipliers (×1.25 then ×0.80), never by adding/subtracting the percentages. The multipliers can conveniently cancel.",
-  },
-  {
-    id: "num-003",
-    category: "numerical",
-    difficulty: 2,
-    prompt:
-      "The average of 5 numbers is 18. One number is removed and the average of the remaining 4 is 20. What was the removed number?",
-    options: ["8", "10", "12", "14"],
-    answerIndex: 1,
-    explanation:
-      "Total of 5 numbers = 5 × 18 = 90. Total of remaining 4 = 4 × 20 = 80. Removed number = 90 − 80 = 10.",
-    tip: "Convert averages to totals immediately (average × count = sum). Most average puzzles collapse into a simple subtraction of two sums.",
-  },
-  {
-    id: "num-004",
-    category: "numerical",
-    difficulty: 1,
-    prompt:
-      "A sum of $600 is divided between A and B in the ratio 2 : 3. How much does B receive?",
-    options: ["$240", "$300", "$360", "$400"],
-    answerIndex: 2,
-    explanation:
-      "There are 2 + 3 = 5 parts. Each part = 600 ÷ 5 = 120. B has 3 parts = 3 × 120 = $360.",
-    tip: "Add the ratio numbers to get total parts, divide the total by that, then multiply by the share you need. Three quick steps.",
-  },
-  {
-    id: "num-005",
-    category: "numerical",
-    difficulty: 1,
-    prompt:
-      "A train travels 240 km in 3 hours. At the same speed, how far will it travel in 5 hours?",
-    options: ["360 km", "380 km", "400 km", "420 km"],
-    answerIndex: 2,
-    explanation:
-      "Speed = 240 ÷ 3 = 80 km/h. In 5 hours: 80 × 5 = 400 km.",
-    tip: "Find the unit rate first (per 1 hour, per 1 item). Once you have the rate, the rest is one multiplication.",
-  },
-  {
-    id: "num-006",
-    category: "numerical",
-    difficulty: 2,
-    prompt: "What number comes next?\n3, 7, 15, 31, ?",
-    options: ["47", "55", "63", "62"],
-    answerIndex: 2,
-    explanation:
-      "Each term is the previous one doubled plus 1: 3→7 (×2+1), 7→15, 15→31, 31×2+1 = 63.",
-    tip: "If terms roughly double, test the rule ×2 then adjust by a small constant (+1, −1, +2). It catches a huge share of 'next number' items.",
-  },
-  {
-    id: "num-007",
-    category: "numerical",
-    difficulty: 2,
-    prompt:
-      "If 4 workers build a wall in 6 days, how many days would 3 workers take, working at the same rate?",
-    options: ["7", "8", "9", "4.5"],
-    answerIndex: 1,
-    explanation:
-      "The job is 4 × 6 = 24 worker-days. With 3 workers: 24 ÷ 3 = 8 days. Fewer workers means more days (inverse proportion).",
-    tip: "For workers/days problems, compute the constant 'worker-days' (people × time). Then divide by the new number of people.",
-  },
-  {
-    id: "num-008",
-    category: "numerical",
-    difficulty: 1,
-    prompt: "What is 15% of 240?",
-    options: ["24", "30", "36", "42"],
-    answerIndex: 2,
-    explanation:
-      "10% of 240 = 24, and 5% = 12. So 15% = 24 + 12 = 36.",
-    tip: "Build awkward percentages from 10% and 5%. 10% is just moving the decimal; 5% is half of that.",
-  },
-  {
-    id: "num-009",
-    category: "numerical",
-    difficulty: 2,
-    prompt:
-      "An item is bought for $80 and sold for $100. What is the profit as a percentage of the cost?",
-    options: ["20%", "25%", "80%", "125%"],
-    answerIndex: 1,
-    explanation:
-      "Profit = 100 − 80 = 20. Profit % = 20 ÷ 80 = 0.25 = 25%. Profit percentage is always measured against cost price, not selling price.",
-    tip: "Percentage change = (change ÷ original) × 100. The 'original' for profit is always the cost you started from.",
-  },
-  {
-    id: "num-010",
-    category: "numerical",
-    difficulty: 2,
-    prompt: "If 3/5 of a number is 36, what is the number?",
-    options: ["48", "54", "60", "72"],
-    answerIndex: 2,
-    explanation:
-      "3/5 of N = 36 → N = 36 × 5 ÷ 3 = 60. (One fifth is 36 ÷ 3 = 12, so the whole is 12 × 5 = 60.)",
-    tip: "To undo 'fraction of N', multiply by the upside-down fraction. Or find one part (÷ numerator) then scale to five parts (× denominator).",
-  },
-  {
-    id: "num-011",
-    category: "numerical",
-    difficulty: 1,
-    prompt: "What number comes next?\n1, 1, 2, 3, 5, 8, ?",
-    options: ["11", "12", "13", "15"],
-    answerIndex: 2,
-    explanation:
-      "Fibonacci: each term is the sum of the previous two. 5 + 8 = 13.",
-    tip: "Memorise the Fibonacci start (1,1,2,3,5,8,13,21). It shows up often and is instantly recognisable.",
-  },
-  {
-    id: "num-012",
-    category: "numerical",
-    difficulty: 3,
-    prompt:
-      "A laptop priced at $1,000 has a 10% discount applied, then 5% sales tax is added to the discounted price. What is the final amount paid?",
-    options: ["$945", "$950", "$955", "$1,045"],
-    answerIndex: 0,
-    explanation:
-      "After discount: 1000 × 0.90 = 900. After tax: 900 × 1.05 = 945.",
-    tip: "Chain the multipliers in order: discount first (×0.90), then tax (×1.05). Don't combine the 10% and 5% into 5% — they apply to different bases.",
-  },
-  {
-    id: "num-013",
-    category: "numerical",
-    difficulty: 3,
-    prompt:
-      "Anna is twice as old as Ben. In 5 years, their combined age will be 40. How old is Anna now?",
-    options: ["16", "18", "20", "24"],
-    answerIndex: 2,
-    explanation:
-      "Let Ben = b, Anna = 2b, combined now = 3b. In 5 years each gains 5, so combined = 3b + 10 = 40 → 3b = 30 → b = 10. Anna = 2 × 10 = 20.",
-    tip: "Define one variable for the simplest person, express the other in terms of it, and remember to age everyone when the problem says 'in X years.'",
-  },
-  {
-    id: "num-014",
-    category: "numerical",
-    difficulty: 2,
-    prompt:
-      "A population of 800 grows by 10%, then falls by 10% the following year. What is the final population?",
-    options: ["800", "792", "808", "780"],
-    answerIndex: 1,
-    explanation:
-      "800 × 1.10 = 880, then 880 × 0.90 = 792. A rise then an equal-percentage fall always lands slightly below the start (1.1 × 0.9 = 0.99).",
-    tip: "A +x% then −x% is NOT a wash — it loses x²/100 percent. Spotting this saves you from the obvious-but-wrong answer of '800'.",
-  },
-  {
-    id: "num-015",
-    category: "numerical",
-    difficulty: 3,
-    prompt:
-      "A and B share money in the ratio 5 : 3. A receives $40 more than B. What is the total amount shared?",
-    options: ["$120", "$160", "$200", "$320"],
-    answerIndex: 1,
-    explanation:
-      "The difference is 5 − 3 = 2 parts, equal to $40, so one part = $20. Total = 8 parts × $20 = $160.",
-    tip: "When a ratio gives you a difference, set 'difference in parts = the given amount' to find one part's value, then scale to the total parts.",
-  },
-  {
-    id: "num-016",
-    category: "numerical",
-    difficulty: 2,
-    prompt:
-      "A car covers 150 km using 12 litres of fuel. How many litres are needed for 250 km at the same consumption?",
-    options: ["18", "20", "22", "24"],
-    answerIndex: 1,
-    explanation:
-      "Consumption = 12 ÷ 150 = 0.08 L/km. For 250 km: 250 × 0.08 = 20 litres. (Or: 250/150 × 12 = 20.)",
-    tip: "Set up as a proportion: litres/km is constant, so litres = (new distance ÷ old distance) × old litres. Cross-multiplying avoids decimals.",
-  },
-  {
-    id: "num-017",
-    category: "numerical",
-    difficulty: 1,
-    prompt: "What number comes next?\n5, 10, 20, 40, ?",
-    options: ["60", "70", "80", "100"],
-    answerIndex: 2,
-    explanation: "Each term doubles: 5, 10, 20, 40, 80.",
-    tip: "If terms keep doubling (ratio of 2), just multiply the last by 2. Check the ratio between two pairs to confirm it's geometric.",
-  },
-  {
-    id: "num-018",
-    category: "numerical",
-    difficulty: 1,
-    prompt: "What is 20% of 150?",
-    options: ["25", "30", "35", "45"],
-    answerIndex: 1,
-    explanation: "10% of 150 = 15, so 20% = 30.",
-    tip: "Get 10% by moving the decimal one place, then scale. 20% is just double 10%.",
-  },
-  {
-    id: "num-019",
-    category: "numerical",
-    difficulty: 1,
-    prompt: "What is the average of 7, 11 and 15?",
-    options: ["10", "11", "12", "13"],
-    answerIndex: 1,
-    explanation: "Sum = 7 + 11 + 15 = 33. Average = 33 ÷ 3 = 11.",
-    tip: "For evenly spaced numbers the average is just the middle value — here, 11. A handy shortcut for arithmetic sequences.",
-  },
-  {
-    id: "num-020",
-    category: "numerical",
-    difficulty: 2,
-    prompt:
-      "A total of $70 is split between two people in the ratio 3 : 4. How much does the smaller share receive?",
-    options: ["$20", "$30", "$40", "$35"],
-    answerIndex: 1,
-    explanation:
-      "Total parts = 3 + 4 = 7, so one part = 70 ÷ 7 = 10. Smaller share = 3 parts = $30.",
-    tip: "Sum the ratio terms, divide the total by that, then multiply by the term you need. The '3' is the smaller share here.",
-  },
-  {
-    id: "num-021",
-    category: "numerical",
-    difficulty: 2,
-    prompt: "A cyclist covers 60 km in 45 minutes. What is the average speed in km/h?",
-    options: ["75 km/h", "80 km/h", "90 km/h", "70 km/h"],
-    answerIndex: 1,
-    explanation:
-      "45 minutes = 0.75 hours. Speed = 60 ÷ 0.75 = 80 km/h.",
-    tip: "Convert minutes to hours before dividing (45 min = 0.75 h). Speed = distance ÷ time in consistent units.",
-  },
-  {
-    id: "num-022",
-    category: "numerical",
-    difficulty: 2,
-    prompt: "What number comes next?\n100, 50, 25, 12.5, ?",
-    options: ["5", "6", "6.25", "7.5"],
-    answerIndex: 2,
-    explanation: "Each term is halved: 100, 50, 25, 12.5, 6.25.",
-    tip: "Falling series often halve or divide by a constant. Confirm by dividing two consecutive terms (here, always ÷2).",
-  },
-  {
-    id: "num-023",
-    category: "numerical",
-    difficulty: 2,
-    prompt:
-      "An item costing $200 is sold for $250. What is the profit as a percentage of cost?",
-    options: ["20%", "25%", "30%", "50%"],
-    answerIndex: 1,
-    explanation: "Profit = 250 − 200 = 50. 50 ÷ 200 = 0.25 = 25%.",
-    tip: "Profit % is always profit ÷ cost. Don't divide by the selling price.",
-  },
-  {
-    id: "num-024",
-    category: "numerical",
-    difficulty: 1,
-    prompt: "If 2/3 of a number is 60, what is the number?",
-    options: ["80", "90", "100", "120"],
-    answerIndex: 1,
-    explanation: "N = 60 × 3 ÷ 2 = 90. (One third = 30, so the whole = 90.)",
-    tip: "Divide by the numerator to get one part, then multiply by the denominator to rebuild the whole.",
-  },
-  {
-    id: "num-025",
-    category: "numerical",
-    difficulty: 2,
-    prompt: "A value rises from 80 to 100. What is the percentage increase?",
-    options: ["20%", "25%", "% 80", "120%"],
-    answerIndex: 1,
-    explanation:
-      "Increase = 100 − 80 = 20. Percentage increase = 20 ÷ 80 = 25% (measured against the original 80).",
-    tip: "Percentage change uses the ORIGINAL value as the denominator — 80 here, not 100. A common trap is dividing by the new value.",
-  },
-  {
-    id: "num-026",
-    category: "numerical",
-    difficulty: 1,
-    prompt: "A jacket priced at $250 has a 20% discount. What is the sale price?",
-    options: ["$180", "$200", "$210", "$230"],
-    answerIndex: 1,
-    explanation: "20% of 250 = 50, so sale price = 250 − 50 = $200. (Or 250 × 0.8 = 200.)",
-    tip: "For a discount, multiply by (1 − rate): 20% off means ×0.8. One step, no separate subtraction.",
-  },
-  {
-    id: "num-027",
-    category: "numerical",
-    difficulty: 3,
-    prompt:
-      "6 machines produce 600 units in 2 hours. How many units do 4 machines produce in 3 hours at the same rate?",
-    options: ["400", "500", "600", "800"],
-    answerIndex: 2,
-    explanation:
-      "Rate per machine per hour = 600 ÷ (6 × 2) = 50 units. So 4 machines × 3 hours × 50 = 600 units.",
-    tip: "Reduce to a single unit rate (per machine per hour), then multiply back up by the new machines × hours.",
-  },
-  {
-    id: "num-028",
-    category: "numerical",
-    difficulty: 2,
-    prompt: "What number comes next?\n2, 5, 10, 17, 26, ?",
-    options: ["35", "36", "37", "38"],
-    answerIndex: 2,
-    explanation:
-      "The differences are odd numbers: +3, +5, +7, +9, then +11. 26 + 11 = 37. (These are n² + 1.)",
-    tip: "When differences are consecutive odd numbers, the sequence is square-based. Spotting +3,+5,+7 tells you the next gap is +9, +11…",
-  },
-  {
-    id: "num-029",
-    category: "numerical",
-    difficulty: 2,
-    prompt:
-      "$1,000 is shared between A, B and C in the ratio 2 : 3 : 5. How much does C receive?",
-    options: ["$300", "$400", "$500", "$200"],
-    answerIndex: 2,
-    explanation:
-      "Total parts = 2 + 3 + 5 = 10, so one part = $100. C = 5 parts = $500.",
-    tip: "With three-way ratios, the parts conveniently sum to 10 here, making each part $100. Always total the parts first.",
-  },
-  {
-    id: "num-030",
-    category: "numerical",
-    difficulty: 2,
-    prompt:
-      "What is the simple interest on $1,000 at 5% per year for 2 years?",
-    options: ["$50", "$100", "$105", "$110"],
-    answerIndex: 1,
-    explanation:
-      "Simple interest = principal × rate × time = 1000 × 0.05 × 2 = $100.",
-    tip: "Simple interest is linear: principal × rate × years. Don't compound unless the question says so.",
-  },
-  {
-    id: "num-031",
-    category: "numerical",
-    difficulty: 2,
-    prompt: "What is 50% of 40% of 200?",
-    options: ["20", "30", "40", "80"],
-    answerIndex: 2,
-    explanation: "40% of 200 = 80, then 50% of 80 = 40.",
-    tip: "Chain percentages as multipliers: 200 × 0.4 × 0.5 = 40. Order doesn't matter — multiplication commutes.",
-  },
-  {
-    id: "num-032",
-    category: "numerical",
-    difficulty: 3,
-    prompt:
-      "A class of 10 students has an average score of 70. An 11th student scores 81. What is the new average?",
-    options: ["70", "71", "72", "75"],
-    answerIndex: 1,
-    explanation:
-      "Old total = 10 × 70 = 700. New total = 700 + 81 = 781. New average = 781 ÷ 11 = 71.",
-    tip: "Work with totals, not averages. The new score is 11 above the old average, spread over 11 people = +1 to the average.",
-  },
-  {
-    id: "num-033",
-    category: "numerical",
-    difficulty: 1,
-    prompt: "A 40-litre solution is 25% acid. How many litres of acid does it contain?",
-    options: ["8", "10", "12", "15"],
-    answerIndex: 1,
-    explanation: "25% of 40 = 0.25 × 40 = 10 litres.",
-    tip: "25% is just one quarter — divide by 4. 40 ÷ 4 = 10.",
-  },
-  {
-    id: "num-034",
-    category: "numerical",
-    difficulty: 2,
-    prompt: "What number comes next?\n1, 8, 27, 64, ?",
-    options: ["100", "115", "125", "144"],
-    answerIndex: 2,
-    explanation: "These are the cubes: 1³, 2³, 3³, 4³, so next is 5³ = 125.",
-    tip: "Recognise the cubes (1, 8, 27, 64, 125, 216) on sight, just like the squares. They appear often in series questions.",
-  },
-  {
-    id: "num-035",
-    category: "numerical",
-    difficulty: 3,
-    prompt:
-      "Two cars are 300 km apart and drive toward each other at 50 km/h and 70 km/h. After how long do they meet?",
-    options: ["2 hours", "2.5 hours", "3 hours", "4 hours"],
-    answerIndex: 1,
-    explanation:
-      "Closing speed = 50 + 70 = 120 km/h. Time = 300 ÷ 120 = 2.5 hours.",
-    tip: "When two objects move toward each other, ADD their speeds to get the closing speed, then divide the gap by it.",
-  },
-  {
-    id: "num-036",
-    category: "numerical",
-    difficulty: 2,
-    prompt: "A value of 200 increases by 50%, then decreases by 50%. What is the final value?",
-    options: ["100", "150", "200", "250"],
-    answerIndex: 1,
-    explanation:
-      "200 × 1.5 = 300, then 300 × 0.5 = 150. A +50% then −50% does not return to the start.",
-    tip: "Equal up-then-down percentages never cancel: ×1.5 then ×0.5 = ×0.75. The obvious answer (200) is the trap.",
-  },
-  {
-    id: "num-037",
-    category: "numerical",
-    difficulty: 1,
-    prompt:
-      "A recipe uses 2 cups of flour for every 1 cup of sugar. How much sugar is needed for 8 cups of flour?",
-    options: ["2 cups", "3 cups", "4 cups", "6 cups"],
-    answerIndex: 2,
-    explanation:
-      "Flour : sugar = 2 : 1. For 8 cups of flour (×4), sugar = 1 × 4 = 4 cups.",
-    tip: "Find the scaling factor (8 ÷ 2 = 4) and apply it to the other quantity. Ratios scale up together.",
-  },
-  {
-    id: "num-038",
-    category: "numerical",
-    difficulty: 2,
-    prompt: "Which fraction is the largest?",
-    options: ["2/3", "3/5", "5/8", "7/10"],
-    answerIndex: 3,
-    explanation:
-      "As decimals: 2/3 ≈ 0.667, 3/5 = 0.6, 5/8 = 0.625, 7/10 = 0.7. The largest is 7/10.",
-    tip: "Convert each fraction to a decimal (numerator ÷ denominator) to compare quickly, or cross-multiply pairs.",
-  },
-  {
-    id: "num-039",
-    category: "numerical",
-    difficulty: 2,
-    prompt: "A is 25% more than B. If B = 80, what is A?",
-    options: ["95", "100", "105", "120"],
-    answerIndex: 1,
-    explanation: "A = 80 × 1.25 = 100.",
-    tip: "'25% more than' means ×1.25. Turn 'more/less than' phrases straight into a multiplier.",
-  },
-  {
-    id: "num-040",
-    category: "numerical",
-    difficulty: 3,
-    prompt:
-      "$1,000 is invested at 10% compound interest per year. What is it worth after 2 years?",
-    options: ["$1,100", "$1,200", "$1,210", "$1,220"],
-    answerIndex: 2,
-    explanation:
-      "Year 1: 1000 × 1.1 = 1100. Year 2: 1100 × 1.1 = 1210. (Or 1000 × 1.1² = 1210.)",
-    tip: "Compound interest multiplies by (1 + rate) each year: 1000 × 1.1². The extra $10 over simple interest is interest on the first year's interest.",
-  },
-  {
-    id: "num-041",
+    id: "num-201",
     category: "numerical",
     difficulty: 3,
     prompt:
@@ -459,11 +10,11 @@ export const numericalQuestions: Question[] = [
     options: ["5%", "10%", "15%", "0%"],
     answerIndex: 0,
     explanation:
-      "Take cost = 100. Marked price = 100 × 1.4 = 140. After 25% off: 140 × 0.75 = 105. Profit = 105 − 100 = 5, i.e. 5% of cost.",
-    tip: "Anchor the cost at 100 and chain the multipliers (×1.4 then ×0.75 = ×1.05). The combined factor minus 1 is the profit rate.",
+      "Cost = 100 → marked 100×1.4 = 140 → sold 140×0.75 = 105. Profit = 5, i.e. 5% of cost.",
+    tip: "Anchor cost at 100 and chain the multipliers (×1.4 then ×0.75 = ×1.05). The factor minus 1 is the profit rate.",
   },
   {
-    id: "num-042",
+    id: "num-202",
     category: "numerical",
     difficulty: 3,
     prompt:
@@ -471,7 +22,313 @@ export const numericalQuestions: Question[] = [
     options: ["18", "20", "22", "24"],
     answerIndex: 3,
     explanation:
-      "Total of all 6 = 90. First 4 sum = 48; last 3 sum = 66. The first-4 and last-3 groups overlap only on the 4th number, so 48 + 66 = (total of 6) + (4th number) → 114 = 90 + 4th → 4th = 24.",
-    tip: "When two overlapping groups are summed, the shared member gets counted twice. (Sum of group A) + (Sum of group B) − (Total) = the overlap.",
+      "Total = 90. First 4 = 48, last 3 = 66. They overlap only on the 4th number: 48 + 66 = 90 + 4th → 4th = 24.",
+    tip: "When two groups overlap, (sum A) + (sum B) − (grand total) = the shared member.",
+  },
+  {
+    id: "num-203",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "A train travels at 72 km/h. How many metres does it cover in 5 seconds?",
+    options: ["72 m", "100 m", "120 m", "144 m"],
+    answerIndex: 1,
+    explanation:
+      "72 km/h = 72000 m ÷ 3600 s = 20 m/s. In 5 s: 20 × 5 = 100 m.",
+    tip: "Convert km/h to m/s by multiplying by 5/18 (72 × 5/18 = 20). It's the most common unit trap.",
+  },
+  {
+    id: "num-204",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "If 5 men can do a job in 12 days, and 8 women can do the same job in 12 days, how long will 5 men and 8 women take together?",
+    options: ["4 days", "6 days", "8 days", "10 days"],
+    answerIndex: 1,
+    explanation:
+      "5 men do 1/12 of the job per day; 8 women also 1/12 per day. Together 1/12 + 1/12 = 1/6 per day → 6 days.",
+    tip: "Add the per-day work rates of each team, then invert to get the time. Rates add; times don't.",
+  },
+  {
+    id: "num-205",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "A sum of money doubles in 8 years under simple interest. What is the annual interest rate?",
+    options: ["8%", "10%", "12.5%", "16%"],
+    answerIndex: 2,
+    explanation:
+      "Doubling means the interest equals the principal over 8 years: rate × 8 = 100% → rate = 12.5% per year.",
+    tip: "Under simple interest, 'doubles in n years' means rate = 100/n percent.",
+  },
+  {
+    id: "num-206",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "20 litres of a solution is 30% acid. How much water must be added to make it 25% acid?",
+    options: ["3 L", "4 L", "5 L", "6 L"],
+    answerIndex: 1,
+    explanation:
+      "Acid = 6 L (fixed). Need 6 ÷ (20 + x) = 0.25 → 20 + x = 24 → x = 4 L.",
+    tip: "In dilution problems the solute stays constant. Set solute ÷ new total = target fraction and solve.",
+  },
+  {
+    id: "num-207",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "After a 20% discount, an item costs $160. What was the original price?",
+    options: ["$180", "$192", "$200", "$210"],
+    answerIndex: 2,
+    explanation:
+      "160 is 80% of the original: original = 160 ÷ 0.8 = $200.",
+    tip: "To reverse a percentage change, divide by the multiplier — not add the percentage back. 20% off = ÷0.8.",
+  },
+  {
+    id: "num-208",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "The ratio of boys to girls is 5 : 3. If 8 more girls join, the ratio becomes 5 : 4. How many boys are there?",
+    options: ["24", "32", "40", "48"],
+    answerIndex: 2,
+    explanation:
+      "Let boys = 5x, girls = 3x. Then 5x/(3x+8) = 5/4 → 20x = 15x + 40 → 5x = 40 → x = 8. Boys = 5×8 = 40.",
+    tip: "Express both quantities with the same unknown (5x and 3x), then turn the new ratio into an equation.",
+  },
+  {
+    id: "num-209",
+    category: "numerical",
+    difficulty: 3,
+    prompt: "What number comes next?\n3, 8, 18, 38, ?",
+    options: ["68", "76", "78", "80"],
+    answerIndex: 2,
+    explanation:
+      "Each term is the previous doubled plus 2: 3×2+2=8, 8×2+2=18, 18×2+2=38, 38×2+2 = 78.",
+    tip: "If terms slightly more than double, test ×2 + constant. Here the constant is +2.",
+  },
+  {
+    id: "num-210",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "Pipe A fills a tank in 6 hours and pipe B in 4 hours. With both open, how long to fill the tank?",
+    options: ["2 h", "2.4 h", "2.5 h", "3 h"],
+    answerIndex: 1,
+    explanation:
+      "Rates: 1/6 + 1/4 = 2/12 + 3/12 = 5/12 per hour → time = 12/5 = 2.4 hours.",
+    tip: "Add fill rates over a common denominator, then invert. 1/6 + 1/4 = 5/12, so the answer is 12/5.",
+  },
+  {
+    id: "num-211",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "A car travels 60 km at 30 km/h and returns the same 60 km at 60 km/h. What is the average speed for the whole trip?",
+    options: ["35 km/h", "40 km/h", "45 km/h", "50 km/h"],
+    answerIndex: 1,
+    explanation:
+      "Time out = 2 h, time back = 1 h, total 3 h for 120 km. Average = 120 ÷ 3 = 40 km/h (not 45 — average speed weights time, not distance).",
+    tip: "Average speed = total distance ÷ total time. Never just average the two speeds.",
+  },
+  {
+    id: "num-212",
+    category: "numerical",
+    difficulty: 3,
+    prompt: "If x + 1/x = 3, what is x² + 1/x²?",
+    options: ["6", "7", "9", "11"],
+    answerIndex: 1,
+    explanation:
+      "Square both sides: (x + 1/x)² = x² + 2 + 1/x² = 9, so x² + 1/x² = 9 − 2 = 7.",
+    tip: "Squaring x + 1/x gives the cross term 2. Subtract it to isolate x² + 1/x².",
+  },
+  {
+    id: "num-213",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "A is 50% more than B, and B is 20% less than C. A is what percentage of C?",
+    options: ["110%", "120%", "130%", "150%"],
+    answerIndex: 1,
+    explanation:
+      "B = 0.8C, A = 1.5 × B = 1.5 × 0.8C = 1.2C → A is 120% of C.",
+    tip: "Chain the relationships as multipliers anchored to C: ×0.8 then ×1.5.",
+  },
+  {
+    id: "num-214",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "A worker A finishes a job in 10 days and B in 15 days. They start together, but A leaves after 2 days. How many total days to finish the job?",
+    options: ["10", "11", "12", "13"],
+    answerIndex: 2,
+    explanation:
+      "Together they do 1/10 + 1/15 = 1/6 per day. In 2 days: 2/6 = 1/3 done. B alone finishes 2/3 at 1/15 per day → (2/3)/(1/15) = 10 days. Total = 2 + 10 = 12.",
+    tip: "Compute work done in the shared phase, then divide the remainder by the lone worker's rate.",
+  },
+  {
+    id: "num-215",
+    category: "numerical",
+    difficulty: 3,
+    prompt: "What number comes next?\n1, 4, 27, 256, ?",
+    options: ["1024", "2500", "3125", "4096"],
+    answerIndex: 2,
+    explanation:
+      "Each term is n to the power n: 1¹, 2², 3³, 4⁴, so 5⁵ = 3125.",
+    tip: "When values explode far faster than simple powers, test nⁿ (1, 4, 27, 256, 3125).",
+  },
+  {
+    id: "num-216",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "A price increases by 25%. By what percentage must it then fall to return to the original price?",
+    options: ["20%", "25%", "30%", "75%"],
+    answerIndex: 0,
+    explanation:
+      "New price = 1.25× original. To undo it: fall = 0.25/1.25 = 0.20 = 20% of the higher price.",
+    tip: "A rise of x% needs a fall of x/(100+x) percent to reverse — the fall is always smaller than the rise.",
+  },
+  {
+    id: "num-217",
+    category: "numerical",
+    difficulty: 3,
+    prompt: "What is 7! ÷ 5!?",
+    options: ["2", "30", "42", "120"],
+    answerIndex: 2,
+    explanation:
+      "7! ÷ 5! = 7 × 6 = 42 (the 5! cancels).",
+    tip: "Factorials cancel: n!/(n−2)! = n(n−1). No need to compute the full factorials.",
+  },
+  {
+    id: "num-218",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "Two dice are rolled. What is the probability that the sum is 7?",
+    options: ["1/9", "1/6", "5/36", "7/36"],
+    answerIndex: 1,
+    explanation:
+      "There are 6 ways to total 7 (1-6, 2-5, 3-4, 4-3, 5-2, 6-1) out of 36 outcomes: 6/36 = 1/6.",
+    tip: "7 is the most likely dice total, with 6 of 36 combinations. Count favourable outcomes over 36.",
+  },
+  {
+    id: "num-219",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "The sum of five consecutive integers is 100. What is the largest of them?",
+    options: ["20", "21", "22", "24"],
+    answerIndex: 2,
+    explanation:
+      "The middle integer is 100 ÷ 5 = 20, so the five are 18, 19, 20, 21, 22. The largest is 22.",
+    tip: "For an odd count of consecutive integers, the average equals the middle term. Build outward from there.",
+  },
+  {
+    id: "num-220",
+    category: "numerical",
+    difficulty: 3,
+    prompt: "What number comes next?\n2, 12, 36, 80, ?",
+    options: ["120", "144", "150", "160"],
+    answerIndex: 2,
+    explanation:
+      "Each term is n²(n+1): 1²·2=2, 2²·3=12, 3²·4=36, 4²·5=80, so 5²·6 = 150.",
+    tip: "If a series grows fast and irregularly, test position-based formulas like n²(n+1) or n(n+1)(n+2).",
+  },
+  {
+    id: "num-221",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "$8,000 is invested at 10% compound interest per year. How much interest is earned after 2 years?",
+    options: ["$1,600", "$1,680", "$1,700", "$1,764"],
+    answerIndex: 1,
+    explanation:
+      "8000 × 1.1² = 8000 × 1.21 = 9680. Interest = 9680 − 8000 = $1,680.",
+    tip: "Compound interest multiplies by (1+r) each year. The extra over simple interest is interest earned on interest.",
+  },
+  {
+    id: "num-222",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "Two squares have sides in the ratio 2 : 3. What is the ratio of their areas?",
+    options: ["2 : 3", "4 : 6", "4 : 9", "8 : 27"],
+    answerIndex: 2,
+    explanation:
+      "Area scales with the square of the side: (2 : 3)² = 4 : 9.",
+    tip: "Lengths ratio r → areas ratio r², volumes ratio r³. A classic trap is leaving it at the linear ratio.",
+  },
+  {
+    id: "num-223",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "A shopkeeper buys oranges at 6 for $5 and sells them at 5 for $6. What is the profit percentage?",
+    options: ["20%", "30%", "44%", "50%"],
+    answerIndex: 2,
+    explanation:
+      "Take 30 oranges: cost = 30/6 × 5 = $25; revenue = 30/5 × 6 = $36. Profit = 11/25 = 44%.",
+    tip: "Pick a quantity that divides both group sizes (LCM of 6 and 5 = 30) to avoid fractions of an orange.",
+  },
+  {
+    id: "num-224",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "A clock shows 3:00. What is the smaller angle between the hour and minute hands?",
+    options: ["60°", "75°", "90°", "120°"],
+    answerIndex: 2,
+    explanation:
+      "At 3:00 the minute hand is at 12 and the hour hand at 3 — exactly a quarter of the dial = 90°.",
+    tip: "Each hour mark is 30° apart (360°/12). Three marks between the hands at 3:00 = 90°.",
+  },
+  {
+    id: "num-225",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "A population grows 20% one year and 20% the next. By what total percentage has it grown?",
+    options: ["40%", "42%", "44%", "48%"],
+    answerIndex: 2,
+    explanation:
+      "1.2 × 1.2 = 1.44, a 44% total increase — more than 40% because the second rise is on a larger base.",
+    tip: "Successive percentage growths compound: multiply the factors. +20% then +20% = ×1.44, not +40%.",
+  },
+  {
+    id: "num-226",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "If 3 cats catch 3 mice in 3 minutes, how many cats are needed to catch 100 mice in 100 minutes?",
+    options: ["3", "33", "100", "300"],
+    answerIndex: 0,
+    explanation:
+      "One cat catches one mouse in 3 minutes, so in 100 minutes one cat catches about 33 mice. 3 cats catch 99–100 mice in 100 minutes — 3 cats suffice.",
+    tip: "Reduce to the rate per single unit (1 cat, 1 minute) before scaling. The famous trap answer here is 100.",
+  },
+  {
+    id: "num-227",
+    category: "numerical",
+    difficulty: 3,
+    prompt:
+      "A 25% increase followed by a 20% decrease leaves a final value of $120. What was the original value?",
+    options: ["$110", "$120", "$125", "$130"],
+    answerIndex: 1,
+    explanation:
+      "Net multiplier = 1.25 × 0.80 = 1.00, so the final value equals the original: $120.",
+    tip: "Multiply the change factors first. Here 1.25 × 0.8 = 1, so the value is unchanged.",
+  },
+  {
+    id: "num-228",
+    category: "numerical",
+    difficulty: 3,
+    prompt: "What is the sum 1 + 2 + 4 + 8 + 16 + 32?",
+    options: ["56", "62", "63", "64"],
+    answerIndex: 2,
+    explanation:
+      "A geometric series of powers of 2: the sum of 2⁰ through 2⁵ is 2⁶ − 1 = 63.",
+    tip: "Powers of 2 sum to one less than the next power: 1+2+…+2ⁿ = 2ⁿ⁺¹ − 1.",
   },
 ];
